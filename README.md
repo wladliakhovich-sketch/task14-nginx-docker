@@ -1,4 +1,4 @@
-# Task 14 - NGINX Docker Project
+\# Task 14 - NGINX Docker Project
 
 ## 📌 Описание проекта
 Данный проект демонстрирует работу веб-сервера NGINX внутри Docker-контейнера.
@@ -42,43 +42,25 @@ task14-nginx-docker/
 
 
 
-# 🚀 NGINX Docker Project (Task 14)
+## Run using Docker image
 
----
+Pull image:
 
-## 🇬🇧 English version
+docker pull waldis2235/task14-nginx:latest
 
-### 📌 Project Description
-This project demonstrates running NGINX inside a Docker container.
+Run container:
 
-The container is configured to:
-- serve a custom HTML page
-- serve images
-- serve music files
-- perform redirects
-- proxy requests to another container (backend)
+docker run -d -p 8080:80 waldis2235/task14-nginx:latest
 
-Technologies used:
-- Docker
-- Docker Compose
-- NGINX
-- Docker Hub
+Open in browser:
 
----
+http://localhost:8080/
+http://localhost:8080/images/
+http://localhost:8080/music/
+http://localhost:8080/redirect
+http://localhost:8080/app/
 
-### 📁 Project Structure
-
-```text
-task14-nginx-docker/
-├── Dockerfile
-├── docker-compose.yml
-├── README.md
-├── nginx/
-│   └── default.conf
-├── html/
-│   └── index.html
-├── images/
-├── music/
-└── app/
-    ├── Dockerfile
-    └── index.html
+Notes:
+- The image runs standalone without docker-compose
+- /app returns a placeholder message in standalone mode
+- Full reverse proxy functionality is available in docker-compose mode
